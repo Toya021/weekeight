@@ -31,11 +31,9 @@ function refreshWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"class="weather-app-icon"/>`;
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
+  getForecast(response.data.city);
 }
+
 function searchCity(city) {
   let apiKey = "3oe104ta9fb0de8314f715a9bb031983";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
